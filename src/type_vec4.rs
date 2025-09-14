@@ -83,6 +83,7 @@ impl<T, I: SliceIndex<[T]>> IndexMut<I> for vec4<T> {
 macro_rules! zero_impl {
     ($($t:ty)*) => ($(
         impl vec4<$t> {
+            #[inline]
             pub const fn zero() -> Self {
                 Self { x: 0 as $t, y: 0 as $t, z: 0 as $t, w: 0 as $t }
             }
