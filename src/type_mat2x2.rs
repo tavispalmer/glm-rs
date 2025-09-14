@@ -156,8 +156,8 @@ macro_rules! binop_impl {
             fn $method(self, other: mat2<$u>) -> mat2<$t> {
                 mat2 {
                     value: [
-                        $imp::$method(self[0], other[1]),
-                        $imp::$method(self[0], other[1]),
+                        $imp::$method(self[0], other[0]),
+                        $imp::$method(self[1], other[1]),
                     ],
                 }
             }
