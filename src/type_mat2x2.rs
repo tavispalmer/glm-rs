@@ -18,8 +18,8 @@ pub type mat2x2 = mat2;
 
 impl<T> mat2<T> {
     #[inline]
-    pub const fn new(value: [vec2<T>; 2]) -> Self {
-        Self { value }
+    pub const fn new(v0: vec2<T>, v1: vec2<T>) -> Self {
+        Self { value: [v0, v1] }
     }
     #[inline]
     pub const fn as_ptr(&self) -> *const vec2<T> {

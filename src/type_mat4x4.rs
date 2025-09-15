@@ -18,8 +18,8 @@ pub type mat4x4 = mat4;
 
 impl<T> mat4<T> {
     #[inline]
-    pub const fn new(value: [vec4<T>; 4]) -> Self {
-        Self { value }
+    pub const fn new(v0: vec4<T>, v1: vec4<T>, v2: vec4<T>, v3: vec4<T>) -> Self {
+        Self { value: [v0, v1, v2, v3] }
     }
     #[inline]
     pub const fn as_ptr(&self) -> *const vec4<T> {
@@ -411,7 +411,7 @@ macro_rules! mul_impl {
                 tmp3 += src_a2 * src_b3.z;
                 tmp3 += src_a3 * src_b3.w;
 
-                mat4::new([tmp0, tmp1, tmp2, tmp3])
+                mat4::new(tmp0, tmp1, tmp2, tmp3)
             }
         }
 

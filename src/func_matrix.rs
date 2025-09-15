@@ -9,11 +9,11 @@ macro_rules! inverse_impl {
                     self.value[0].x * self.value[1].y
                     - self.value[1].x * self.value[0].y);
 
-                let inverse = Self::new([
+                let inverse = Self::new(
                     vec2::new(  self.value[1].y * one_over_determinant,
                               - self.value[0].y * one_over_determinant),
                     vec2::new(- self.value[1].x * one_over_determinant,
-                                self.value[0].x * one_over_determinant)]);
+                                self.value[0].x * one_over_determinant));
 
                 inverse
             }
@@ -117,7 +117,7 @@ macro_rules! inverse_impl {
 
                 let sign_a = vec4::new( 1 as $t, -1 as $t,  1 as $t, -1 as $t);
                 let sign_b = vec4::new(-1 as $t,  1 as $t, -1 as $t,  1 as $t);
-                let inverse = mat4::new([
+                let inverse = mat4::new(
                     vec4::new(
                         inv0.x * sign_a.x,
                         inv0.y * sign_a.y,
@@ -142,7 +142,7 @@ macro_rules! inverse_impl {
                         inv3.z * sign_b.z,
                         inv3.w * sign_b.w,
                     ),
-                ]);
+                );
 
                 let row0 = vec4::new(inverse.value[0].x, inverse.value[1].x, inverse.value[2].x, inverse.value[3].x);
 
@@ -156,7 +156,7 @@ macro_rules! inverse_impl {
 
                 let one_over_determinant = 1 as $t / dot1;
 
-                mat4::new([
+                mat4::new(
                     vec4::new(
                         inverse.value[0].x * one_over_determinant,
                         inverse.value[0].y * one_over_determinant,
@@ -181,7 +181,7 @@ macro_rules! inverse_impl {
                         inverse.value[3].z * one_over_determinant,
                         inverse.value[3].w * one_over_determinant,
                     ),
-                ])
+                )
             }
         }
     )*)

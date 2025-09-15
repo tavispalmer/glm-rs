@@ -18,8 +18,8 @@ pub type mat3x3 = mat3;
 
 impl<T> mat3<T> {
     #[inline]
-    pub const fn new(value: [vec3<T>; 3]) -> Self {
-        Self { value }
+    pub const fn new(v0: vec3<T>, v1: vec3<T>, v2: vec3<T>) -> Self {
+        Self { value: [v0, v1, v2] }
     }
     #[inline]
     pub const fn as_ptr(&self) -> *const vec3<T> {
@@ -380,7 +380,7 @@ macro_rules! mul_impl {
                 tmp2 += src_a1 * src_b2.y;
                 tmp2 += src_a2 * src_b2.z;
 
-                mat3::new([tmp0, tmp1, tmp2])
+                mat3::new(tmp0, tmp1, tmp2)
             }
         }
 
