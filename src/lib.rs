@@ -19,3 +19,7 @@ pub use type_vec4::*;
 pub use type_mat2x2::*;
 pub use type_mat3x3::*;
 pub use type_mat4x4::*;
+
+mod ext {
+    mod matrix_clip_space;
+}
